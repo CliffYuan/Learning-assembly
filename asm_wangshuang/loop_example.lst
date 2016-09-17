@@ -1,0 +1,23 @@
+     1                                 %line 1+1 loop_example.asm
+     2                                 
+     3                                 
+     4                                 
+     5                                 
+     6                                 
+     7                                 
+     8                                 
+     9                                 
+    10                                 
+    11                                 [segment .text]
+    12                                 [global _start]
+    13                                 
+    14                                 _start:
+    15 00000000 B802000000              mov eax,2
+    16 00000005 B90B000000              mov ecx,11
+    17 0000000A 01C0                   s: add eax,eax
+    18 0000000C E2FA                    loop s
+    19                                 
+    20 0000000E B801000000              mov eax,1
+    21 00000013 89C3                    mov ebx,eax
+    22 00000015 CD80                    int 0x80
+    23                                 
