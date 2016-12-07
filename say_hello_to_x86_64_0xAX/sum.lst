@@ -1,0 +1,37 @@
+     1                                 %line 1+1 sum.asm
+     2                                 
+     3                                 
+     4                                 
+     5                                 
+     6                                 
+     7                                 [section .data]
+     8                                  num1: equ 100
+     9                                  num2: equ 50
+    10 00000000 53756D20697320636F-     msg: db "Sum is correct", 10
+    11 00000000 72726563740A       
+    12                                 
+    13                                 
+    14                                 [section .text]
+    15                                 [global _start]
+    16                                 
+    17                                 _start:
+    18 00000000 48C7C064000000          mov rax,100
+    19 00000007 48C7C332000000          mov rbx,50
+    20 0000000E 4801D8                  add rax,rbx
+    21 00000011 483D96000000            cmp rax,150
+    22 00000017 7520                    jne _exit
+    23 00000019 EBFE                    jmp _rightSum
+    24                                 
+    25                                 _rightSum:
+    26 0000001B 48C7C001000000          mov rax,1
+    27 00000022 48C7C701000000          mov rdi,1
+    28 00000029 48C7C6[00000000]        mov rsi,msg
+    29 00000030 48C7C20F000000          mov rdx, 15
+    30 00000037 0F05                    syscall
+    31 00000039 EBFE                    jmp _exit
+    32                                 
+    33                                 _exit:
+    34 0000003B 48C7C03C000000          mov rax,60
+    35 00000042 48C7C700000000          mov rdi,0
+    36 00000049 0F05                    syscall
+    37                                 
