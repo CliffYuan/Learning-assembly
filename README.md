@@ -7,6 +7,7 @@
 ```
 gcc -masm=intel -S add.c -o add-intel.s //汇编使用intel格式，默认是AT&T
 
+cc -g -O0 simple_method_call.c   -o simple_method_call // gdb asm
 ```
 
 
